@@ -1,0 +1,16 @@
+$primary-color: #0077be;
+$secondary-color: #00a86b;
+$background-color: #f0f8ff;
+$text-color: #333;
+$card-background: #ffffff;
+$card-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+$header-height: 60px;
+$footer-height: 60px;
+
+@mixin card-style {
+  background-color: $card-background;
+  border-radius: 8px;
+  box-shadow: $card-shadow;
+  padding: 1rem;
+}

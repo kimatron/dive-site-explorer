@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <h2>Welcome to Dive Site Explorer</h2>
-    <p>Discover amazing dive sites around the world!</p>
+    <h1>Welcome to Dive Site Explorer</h1>
+    <p>Explore amazing dive sites around the world!</p>
   </div>
 </template>
 

@@ -1,12 +1,9 @@
 <template>
   <div id="app">
-    <header>
-      <h1>Dive Site Explorer</h1>
-      <nav>
-        <router-link to="/">Home</router-link> |
-        <router-link to="/map">Dive Site Map</router-link>
-      </nav>
-    </header>
+    <nav>
+      <router-link to="/">Home</router-link> |
+      <router-link to="/map">Dive Site Map</router-link>
+    </nav>
     <router-view></router-view>
   </div>
 </template>
@@ -24,18 +21,6 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-}
-
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
+  margin-top: 60px;
 }
 </style>

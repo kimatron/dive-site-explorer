@@ -77,23 +77,29 @@ The application includes a robust search system that allows users to find dive s
 
 ## Project Setup
 
-```bash
+
 # Clone the repository
-git clone https://github.com/yourusername/dive-site-explorer.git
+```bash git clone https://github.com/yourusername/dive-site-explorer.git
 cd dive-site-explorer
-
-# Install dependencies
+```
+### Install dependencies
+```
 npm install
-
-# Serve with hot reload at localhost:8080
+```
+### Serve with hot reload at localhost:8080
+```
 npm run serve
-
-# Compile and minify for production
+```
+### Compile and minify for production
+```
 npm run build
-
-# Run tests
+```
+### Run tests
+```
 npm run test
-Project Structure
+```
+# Project Structure
+```
 Copydive-site-explorer/
 │
 ├── public/

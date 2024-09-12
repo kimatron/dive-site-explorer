@@ -2,7 +2,7 @@
   <div class="dive-site-detail">
     <div v-if="site" class="site-card">
       <h2>{{ site.name }}</h2>
-      <button @click="toggleFavorite" :class="{ 'is-favorite': site.isFavorite }" class="favorite-btn">
+      <button @click="handleToggleFavorite" :class="{ 'is-favorite': site.isFavorite }" class="favorite-btn">
         {{ site.isFavorite ? '★ Favorite' : '☆ Add to Favorites' }}
       </button>
       <img :src="site.imageUrl" :alt="site.name" class="site-image">
@@ -30,15 +30,20 @@ import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'DiveSiteDetail',
   computed: {
-    ...mapGetters(['getDiveSiteById']),
-    site() {
-      return this.getDiveSiteById(this.$route.params.id)
-    }
-  },
-  methods: {
+      ...mapGetters(['getDiveSiteById']),
+      site() {
+        return this.getDiveSiteById(this.$route.params.id)
+      },
+    },
+    methods: {
     ...mapActions(['toggleFavorite']),
-    toggleFavorite() {
-      this.toggleFavorite(this.site.id)
+    handleToggleFavorite() {
+      if (this.site) {
+        console.log('Toggling favorite for site:', this.site.id)
+        this.toggleFavorite(this.site.id)
+        // Force a re-render
+        this.$forceUpdate()
+      }
     }
   }
 }
@@ -72,10 +77,11 @@ export default {
   &:hover {
     background-color: darken($secondary-color, 10%);
   }
+}
 
-  &.is-favorite {
-    background-color: $primary-color;
-  }
+.is-favorite {
+  background-color: gold;
+  color: black;
 }
 
 .site-image {
@@ -115,4 +121,6 @@ h2 {
   border-radius: 4px;
   font-size: 0.9rem;
 }
+
+
 </style>

@@ -47,6 +47,37 @@ export default {
 <style lang="scss" scoped>
 @import '../styles/variables.scss';
 
+.favorite-dive-sites {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.site-item {
+  @include card-style;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  color: $primary-color;
+  margin-top: 0;
+}
+
+.view-details {
+  display: inline-block;
+  background-color: $secondary-color;
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: background-color 0.3s;
+
+  &:hover {
+    background-color: $primary-color;
+  }
+}
+
+
 .dive-site-detail {
   display: flex;
   justify-content: center;
@@ -77,3 +108,4 @@ export default {
     background-color: $primary-color;
   }
 }
+</style>

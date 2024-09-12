@@ -22,12 +22,12 @@
 </template>
 
 <script>
-import { LMap, LTileLayer, LMarker, LPopup, LMarkerCluster } from '@vue-leaflet/vue-leaflet';
+import { LMap, LTileLayer, LMarker, LPopup } from '@vue-leaflet/vue-leaflet';
 import { mapGetters } from 'vuex';
 import 'leaflet/dist/leaflet.css';
+import L from 'leaflet';
 import 'leaflet.markercluster/dist/MarkerCluster.css';
 import 'leaflet.markercluster/dist/MarkerCluster.Default.css';
-import L from 'leaflet';
 import 'leaflet.markercluster';
 
 export default {
@@ -37,7 +37,6 @@ export default {
     LTileLayer,
     LMarker,
     LPopup,
-    LMarkerCluster,
   },
   data() {
     return {

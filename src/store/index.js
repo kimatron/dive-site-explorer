@@ -10,27 +10,27 @@ export default createStore({
     ]
   },
   mutations: {
-    ADD_DIVE_SITE(state, diveSite) {
-      state.diveSites.push(diveSite)
-    },
     TOGGLE_FAVORITE(state, id) {
-      const site = state.diveSites.find(site => site.id === id)
+      const site = state.diveSites.find(site => site.id === parseInt(id))
       if (site) {
         site.isFavorite = !site.isFavorite
+        console.log(`Site ${id} favorite status changed to:`, site.isFavorite)
+      } else {
+        console.log(`Site ${id} not found`)
       }
     }
   },
   actions: {
-    addDiveSite({ commit }, diveSite) {
-      commit('ADD_DIVE_SITE', diveSite)
-    },
     toggleFavorite({ commit }, id) {
+      console.log('toggleFavorite action called with id:', id)
       commit('TOGGLE_FAVORITE', id)
     }
   },
   getters: {
     getDiveSiteById: (state) => (id) => {
-      return state.diveSites.find(site => site.id === parseInt(id))
+      const site = state.diveSites.find(site => site.id === parseInt(id))
+      console.log(`getDiveSiteById called for id ${id}, found:`, site)
+      return site
     },
     getAllDiveSites: (state) => {
       return state.diveSites

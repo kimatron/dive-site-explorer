@@ -22,31 +22,22 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'DiveSiteDetail',
-  data() {
-    return {
-      site: null
-    }
-  },
-  created() {
-    // In a real app, you'd fetch this data from an API
-    this.site = {
-      id: this.$route.params.id,
-      name: 'Great Blue Hole',
-      imageUrl: 'https://example.com/great-blue-hole.jpg',
-      description: 'The Great Blue Hole is a giant marine sinkhole off the coast of Belize. It\'s a world-class destination for recreational scuba divers.',
-      location: 'Lighthouse Reef, Belize',
-      depth: 124,
-      difficulty: 'Advanced',
-      bestTime: 'April to June',
-      marineLife: ['Caribbean reef shark', 'Midnight parrotfish', 'Stalactite']
+  computed: {
+    ...mapGetters(['getDiveSiteById']),
+    site() {
+      return this.getDiveSiteById(this.$route.params.id)
     }
   }
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../styles/variables.scss';
+
 .dive-site-detail {
   display: flex;
   justify-content: center;
@@ -55,10 +46,7 @@ export default {
 }
 
 .site-card {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  padding: 2rem;
+  @include card-style;
   max-width: 600px;
   width: 100%;
 }
@@ -72,7 +60,7 @@ export default {
 }
 
 h2 {
-  color: var(--primary-color);
+  color: $primary-color;
   margin-top: 0;
 }
 
@@ -94,7 +82,7 @@ h2 {
 }
 
 .marine-life li {
-  background-color: var(--secondary-color);
+  background-color: $secondary-color;
   color: white;
   padding: 0.25rem 0.5rem;
   border-radius: 4px;

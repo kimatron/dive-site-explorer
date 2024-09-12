@@ -22,23 +22,20 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
   name: 'DiveSiteList',
   data() {
     return {
       searchQuery: '',
-      difficultyFilter: '',
-      diveSites: [
-        { id: 1, name: 'Great Blue Hole', description: 'Famous for its circular shape and deep blue color.', difficulty: 'Advanced' },
-        { id: 2, name: 'Barracuda Point', description: 'Known for its strong currents and schools of barracuda.', difficulty: 'Intermediate' },
-        { id: 3, name: 'SS Thistlegorm', description: 'A WWII shipwreck in the Red Sea.', difficulty: 'Advanced' },
-        { id: 4, name: 'Coral Garden', description: 'Beautiful shallow reef with diverse marine life.', difficulty: 'Beginner' },
-      ]
+      difficultyFilter: ''
     }
   },
   computed: {
+    ...mapGetters(['getAllDiveSites']),
     filteredSites() {
-      return this.diveSites.filter(site => {
+      return this.getAllDiveSites.filter(site => {
         const matchesSearch = site.name.toLowerCase().includes(this.searchQuery.toLowerCase()) ||
                               site.description.toLowerCase().includes(this.searchQuery.toLowerCase());
         const matchesDifficulty = this.difficultyFilter === '' || site.difficulty === this.difficultyFilter;
@@ -49,7 +46,9 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+@import '../styles/variables.scss';
+
 .dive-site-list {
   max-width: 800px;
   margin: 0 auto;
@@ -77,30 +76,27 @@ ul {
 }
 
 .site-item {
-  background-color: white;
+  @include card-style;
   margin-bottom: 1rem;
-  padding: 1rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 h3 {
-  color: var(--primary-color);
+  color: $primary-color;
   margin-top: 0;
 }
 
 .view-details {
   display: inline-block;
-  background-color: var(--secondary-color);
+  background-color: $secondary-color;
   color: white;
   padding: 0.5rem 1rem;
   border-radius: 4px;
   text-decoration: none;
   margin-top: 0.5rem;
   transition: background-color 0.3s;
-}
 
-.view-details:hover {
-  background-color: var(--primary-color);
+  &:hover {
+    background-color: $primary-color;
+  }
 }
 </style>

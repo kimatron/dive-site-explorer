@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../components/Home.vue'
 import DiveSiteMap from '../components/DiveSiteMap.vue'
+import DiveSiteList from '../components/DiveSiteList.vue'
 
 const routes = [
   {
@@ -12,6 +13,16 @@ const routes = [
     path: '/map',
     name: 'DiveSiteMap',
     component: DiveSiteMap
+  },
+  {
+    path: '/list',
+    name: 'DiveSiteList',
+    component: DiveSiteList
+  },
+  {
+    path: '/site/:id',
+    name: 'DiveSiteDetail',
+    component: () => import('../components/DiveSiteDetail.vue') // We'll create this component next
   }
 ]
 

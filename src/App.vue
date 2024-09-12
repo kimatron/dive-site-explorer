@@ -6,6 +6,7 @@
         <router-link to="/">Home</router-link>
         <router-link to="/map">Map</router-link>
         <router-link to="/list">Dive Sites</router-link>
+        <router-link to="/favorites">Favorites</router-link>
       </nav>
     </header>
     <main>

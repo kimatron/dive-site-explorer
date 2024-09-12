@@ -20,6 +20,11 @@ const routes = [
     path: '/site/:id',
     name: 'DiveSiteDetail',
     component: () => import('../components/DiveSiteDetail.vue')
+  },
+  {
+    path: '/favorites',
+    name: 'FavoriteDiveSites',
+    component: () => import('../components/FavoriteDiveSites.vue')
   }
 ]
 
